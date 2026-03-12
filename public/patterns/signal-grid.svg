@@ -1,0 +1,24 @@
+<svg width="1200" height="1200" viewBox="0 0 1200 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g opacity="0.9">
+    <path d="M0 0H1200" stroke="#A8D3DB" stroke-opacity="0.12"/>
+    <path d="M0 120H1200" stroke="#A8D3DB" stroke-opacity="0.08"/>
+    <path d="M0 240H1200" stroke="#A8D3DB" stroke-opacity="0.08"/>
+    <path d="M0 360H1200" stroke="#A8D3DB" stroke-opacity="0.08"/>
+    <path d="M0 480H1200" stroke="#A8D3DB" stroke-opacity="0.1"/>
+    <path d="M0 600H1200" stroke="#A8D3DB" stroke-opacity="0.08"/>
+    <path d="M0 720H1200" stroke="#A8D3DB" stroke-opacity="0.08"/>
+    <path d="M0 840H1200" stroke="#A8D3DB" stroke-opacity="0.08"/>
+    <path d="M0 960H1200" stroke="#A8D3DB" stroke-opacity="0.08"/>
+    <path d="M0 1080H1200" stroke="#A8D3DB" stroke-opacity="0.08"/>
+    <path d="M0 0V1200" stroke="#A8D3DB" stroke-opacity="0.12"/>
+    <path d="M120 0V1200" stroke="#A8D3DB" stroke-opacity="0.08"/>
+    <path d="M240 0V1200" stroke="#A8D3DB" stroke-opacity="0.08"/>
+    <path d="M360 0V1200" stroke="#A8D3DB" stroke-opacity="0.08"/>
+    <path d="M480 0V1200" stroke="#A8D3DB" stroke-opacity="0.1"/>
+    <path d="M600 0V1200" stroke="#A8D3DB" stroke-opacity="0.08"/>
+    <path d="M720 0V1200" stroke="#A8D3DB" stroke-opacity="0.08"/>
+    <path d="M840 0V1200" stroke="#A8D3DB" stroke-opacity="0.08"/>
+    <path d="M960 0V1200" stroke="#A8D3DB" stroke-opacity="0.08"/>
+    <path d="M1080 0V1200" stroke="#A8D3DB" stroke-opacity="0.08"/>
+  </g>
+</svg>

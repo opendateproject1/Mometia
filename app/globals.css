@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --canvas: 7 10 15;
+  --panel: 12 17 24;
+  --panel-soft: 16 23 31;
+  --line: 121 145 163;
+  --ink: 239 244 248;
+  --muted: 157 170 183;
+  --accent: 104 175 190;
+  --accent-soft: 56 102 117;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: rgb(var(--ink));
+  background:
+    radial-gradient(circle at 16% 12%, rgba(96, 151, 165, 0.12), transparent 18%),
+    radial-gradient(circle at 84% 10%, rgba(44, 74, 92, 0.18), transparent 18%),
+    radial-gradient(circle at 50% -10%, rgba(104, 175, 190, 0.08), transparent 26%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 18rem),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015), transparent 28%, transparent 72%, rgba(104, 175, 190, 0.015)),
+    rgb(var(--canvas));
+  font-feature-settings: "ss01" 1, "cv02" 1, "rlig" 1;
+  text-rendering: optimizeLegibility;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body::before {
+  background-image:
+    url("/patterns/signal-grid.svg"),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 24%, transparent 76%, rgba(104, 175, 190, 0.04)),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 1200px 1200px, auto, 88px 88px, 88px 88px;
+  background-position: center top, center, center, center;
+  opacity: 0.12;
+}
+
+body::after {
+  background-image:
+    url("/patterns/noise.svg"),
+    radial-gradient(circle at 18% 22%, rgba(104, 175, 190, 0.18) 0, rgba(104, 175, 190, 0.18) 1px, transparent 2px),
+    radial-gradient(circle at 72% 34%, rgba(104, 175, 190, 0.12) 0, rgba(104, 175, 190, 0.12) 1px, transparent 2px),
+    linear-gradient(122deg, transparent 26%, rgba(104, 175, 190, 0.08) 27%, transparent 28%, transparent 72%, rgba(104, 175, 190, 0.08) 73%, transparent 74%);
+  background-size: auto, 360px 360px, 520px 520px, 100% 100%;
+  background-position: center, center, center, center;
+  opacity: 0.06;
+  mix-blend-mode: screen;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(104, 175, 190, 0.22);
+  color: rgb(var(--ink));
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+    line-height: 1.75;
+  }
+
+  input,
+  textarea {
+    color: rgb(var(--ink));
+  }
+
+  :focus-visible {
+    outline: 2px solid rgba(104, 175, 190, 0.85);
+    outline-offset: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@layer components {
+  .panel-surface {
+    @apply relative overflow-hidden border backdrop-blur-md;
+    border-color: rgba(121, 145, 163, 0.14);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0)),
+      rgba(12, 17, 24, 0.82);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.045),
+      0 18px 48px rgba(3, 8, 14, 0.24);
+  }
+
+  .panel-surface-soft {
+    @apply relative overflow-hidden border backdrop-blur-md;
+    border-color: rgba(121, 145, 163, 0.11);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0)),
+      rgba(16, 23, 31, 0.72);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  }
+
+  .section-shell {
+    @apply relative overflow-hidden rounded-[2rem] border bg-panel/45;
+    border-color: rgba(121, 145, 163, 0.12);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0)),
+      rgba(12, 17, 24, 0.48);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.04),
+      0 22px 60px rgba(2, 6, 11, 0.22);
+  }
+
+  .section-shell::before,
+  .section-shell::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .section-shell::before {
+    background:
+      linear-gradient(132deg, rgba(255, 255, 255, 0.03), transparent 30%, transparent 68%, rgba(104, 175, 190, 0.05)),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.024) 1px, transparent 1px),
+      linear-gradient(rgba(255, 255, 255, 0.024) 1px, transparent 1px);
+    background-size: auto, 72px 72px, 72px 72px;
+    opacity: 0.2;
+  }
+
+  .section-shell::after {
+    background:
+      radial-gradient(circle at 16% 24%, rgba(104, 175, 190, 0.18) 0, rgba(104, 175, 190, 0.18) 2px, transparent 3px),
+      radial-gradient(circle at 78% 68%, rgba(104, 175, 190, 0.12) 0, rgba(104, 175, 190, 0.12) 2px, transparent 3px),
+      linear-gradient(118deg, transparent 23%, rgba(104, 175, 190, 0.08) 24%, transparent 25%, transparent 74%, rgba(104, 175, 190, 0.06) 75%, transparent 76%);
+    opacity: 0.18;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, rgba(239, 244, 248, 1) 0%, rgba(166, 213, 223, 0.94) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .signal-mask {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent),
+      linear-gradient(90deg, rgba(104, 175, 190, 0.18), transparent 32%, transparent 68%, rgba(104, 175, 190, 0.18)),
+      rgba(12, 17, 24, 0.72);
+  }
+
+  .scanline {
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0, transparent 40%);
+    background-size: 100% 6px;
+  }
+
+  .headline-glow {
+    text-shadow: 0 24px 60px rgba(104, 175, 190, 0.12);
+  }
+}

@@ -1,0 +1,65 @@
+# Dependencies
+node_modules/
+/.pnp
+.pnp.js
+
+# Testing
+/coverage
+.nyc_output/
+
+# Next.js
+/.next/
+/out/
+/dist/
+
+# Production
+/build
+
+# Misc
+.DS_Store
+Thumbs.db
+.AppleDouble
+.LSOverride
+*.pem
+*.key
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+*.log
+logs/
+
+# Local env files
+.env
+.env.local
+.env.*.local
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.vim
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+
+# Build artifacts
+*.tsbuildinfo
+.eslintcache
+.stylelintcache
+
+# Vercel
+.vercel/
+
+# OS
+.AppleDouble
+.LSOverride
+ehthumbs.db
+
+# Temporary
+.cache/
+tmp/
+temp/
