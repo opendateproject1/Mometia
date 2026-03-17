@@ -15,40 +15,40 @@ interface SlideData {
 
 const slides: SlideData[] = [
   {
-    title: 'Cloud Security',
-    subtitle: 'Infrastructure Protection',
+    title: 'Cloud & Identity Security',
+    subtitle: 'Microsoft 365 & Cloud Environments',
     description:
-      'Secure every layer of your cloud architecture with advanced threat detection, continuous monitoring, and automated response capabilities built for modern cloud-native environments.',
+      'Reduce exposure across cloud environments through identity governance and configuration hardening.',
     imageUrl:
       'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&h=1200&fit=crop&q=80',
     blurDataURL:
       'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwwUAxUTAwsTBhYTB9kYFhYaHx8aHh8ZIB4cIB4eHSMpJSUnKi4tMzM1NTc5OT3/2wBDAQICAgMDAwYDAwYMCAcIDAwwMjAxMjAxNDc1Nzc3NTU5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OT/wAARCAApACgDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8VAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwAA8A/9k=',
   },
   {
-    title: 'GRC & Compliance',
-    subtitle: 'Governance · Risk · Compliance',
+    title: 'Endpoint Threat Defense',
+    subtitle: 'Behavior-Based Monitoring',
     description:
-      'Navigate complex regulatory frameworks with confidence. From SOC 2 to ISO 27001 and HIPAA, our experts guide your path to certification while building a resilient compliance posture.',
+      'Behavior-based monitoring and response to detect sophisticated threats before operational disruption.',
     imageUrl:
       'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=900&h=1200&fit=crop&q=80',
     blurDataURL:
       'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwwUAxUTAwsTBhYTB9kYFhYaHx8aHh8ZIB4cIB4eHSMpJSUnKi4tMzM1NTc5OT3/2wBDAQICAgMDAwYDAwYMCAcIDAwwMjAxMjAxNDc1Nzc3NTU5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OT/wAARCAApACgDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8VAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwAA8A/9k=',
   },
   {
-    title: 'Ransomware Defense',
-    subtitle: 'Threat Prevention & Response',
+    title: 'Resilient Backup Architecture',
+    subtitle: 'Immutable Backup Strategies',
     description:
-      'Stay ahead of ransomware actors with proactive defenses, real-time detection, and a tested incident response playbook that contains threats before they impact your operations.',
+      'Immutable backup strategies designed to withstand ransomware and operational incidents.',
     imageUrl:
       'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=900&h=1200&fit=crop&q=80',
     blurDataURL:
       'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwwUAxUTAwsTBhYTB9kYFhYaHx8aHh8ZIB4cIB4eHSMpJSUnKi4tMzM1NTc5OT3/2wBDAQICAgMDAwYDAwYMCAcIDAwwMjAxMjAxNDc1Nzc3NTU5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OT/wAARCAApACgDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8VAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwAA8A/9k=',
   },
   {
-    title: 'Penetration Testing',
-    subtitle: 'Offensive Security Assessments',
+    title: 'Executive Risk Assessments',
+    subtitle: 'Business Risk Insights',
     description:
-      'Think like an attacker to build better defenses. Our ethical hackers simulate real-world attack scenarios to uncover vulnerabilities across your network, applications, and systems.',
+      'Security evaluations translated into clear business risk insights and remediation priorities.',
     imageUrl:
       'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=900&h=1200&fit=crop&q=80',
     blurDataURL:

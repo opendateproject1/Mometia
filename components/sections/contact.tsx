@@ -8,15 +8,6 @@ import Link from 'next/link'
 
 const EASE_EXPO = [0.16, 1, 0.3, 1] as const
 
-const SERVICES = [
-  'Cloud Security',
-  'GRC & Compliance',
-  'Ransomware Defense',
-  'Penetration Testing',
-  'Incident Response',
-  'Other',
-]
-
 const contactDetails = [
   { icon: Mail, label: 'Email', value: 'hello@mometia.com', href: 'mailto:hello@mometia.com' },
   { icon: Phone, label: 'Phone', value: '+1 (555) 000-0000', href: 'tel:+15550000000' },
@@ -42,14 +33,19 @@ export function Contact() {
     offset: ['start center', 'end center'],
   })
 
-  const headerOpacity = useTransform(contentProgress, [0, 0.15], [0, 1])
-  const headerScale = useTransform(contentProgress, [0, 0.15], [0.95, 1])
-  const leftY = useTransform(contentProgress, [0.05, 0.35], [40, 0])
-  const leftOpacity = useTransform(contentProgress, [0.05, 0.3], [0, 1])
-  const rightY = useTransform(contentProgress, [0.1, 0.4], [40, 0])
-  const rightOpacity = useTransform(contentProgress, [0.1, 0.35], [0, 1])
-  const orb1Y = useTransform(sectionProgress, [0, 1], [0, -100])
-  const orb2Y = useTransform(sectionProgress, [0, 1], [0, 100])
+  // Enhanced header animations with bidirectional smoothness
+  const headerOpacity = useTransform(contentProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0.9])
+  const headerScale = useTransform(contentProgress, [0, 0.15, 0.85, 1], [0.95, 1, 1, 0.98])
+
+  // Content animations with improved bidirectional behavior
+  const leftY = useTransform(contentProgress, [0, 0.3, 0.7, 1], [60, 0, 0, -20])
+  const leftOpacity = useTransform(contentProgress, [0, 0.25, 0.75, 1], [0, 1, 1, 0.8])
+  const rightY = useTransform(contentProgress, [0, 0.35, 0.75, 1], [80, 0, 0, -30])
+  const rightOpacity = useTransform(contentProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0.8])
+
+  // Orb parallax with improved smoothness
+  const orb1Y = useTransform(sectionProgress, [0, 0.5, 1], [0, -70, -140])
+  const orb2Y = useTransform(sectionProgress, [0, 0.5, 1], [0, 70, 140])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -103,7 +99,7 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Let's Talk Security
+            Request a Confidential Consultation
           </motion.h2>
 
           <motion.div
@@ -121,8 +117,7 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.3 }}
           >
-            Ready to strengthen your security posture? Reach out and our team
-            will get back to you within one business day.
+            If your organization is evaluating cybersecurity exposure, governance maturity, or resilience planning, we welcome a confidential discussion.
           </motion.p>
         </motion.div>
 
@@ -226,7 +221,7 @@ export function Contact() {
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="flex flex-col gap-1.5">
                       <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                        Full Name *
+                        Name *
                       </label>
                       <input
                         required
@@ -235,6 +230,20 @@ export function Contact() {
                         className={inputBase}
                       />
                     </div>
+                    <div className="flex flex-col gap-1.5">
+                      <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                        Company *
+                      </label>
+                      <input
+                        required
+                        type="text"
+                        placeholder="Acme Corp"
+                        className={inputBase}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid gap-4 sm:grid-cols-2">
                     <div className="flex flex-col gap-1.5">
                       <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                         Email *
@@ -246,31 +255,15 @@ export function Contact() {
                         className={inputBase}
                       />
                     </div>
-                  </div>
-
-                  <div className="grid gap-4 sm:grid-cols-2">
                     <div className="flex flex-col gap-1.5">
                       <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                        Organization
+                        Phone
                       </label>
                       <input
-                        type="text"
-                        placeholder="Acme Corp"
+                        type="tel"
+                        placeholder="+1 (555) 000-0000"
                         className={inputBase}
                       />
-                    </div>
-                    <div className="flex flex-col gap-1.5">
-                      <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                        Service Interest
-                      </label>
-                      <select className={inputBase}>
-                        <option value="">Select a service…</option>
-                        {SERVICES.map((s) => (
-                          <option key={s} value={s}>
-                            {s}
-                          </option>
-                        ))}
-                      </select>
                     </div>
                   </div>
 

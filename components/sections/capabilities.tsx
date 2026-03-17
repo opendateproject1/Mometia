@@ -20,37 +20,37 @@ const EASE_EXPO = [0.16, 1, 0.3, 1] as const;
 const capabilities = [
   {
     icon: <Shield className="h-6 w-6 text-primary" />,
-    text: "Threat Detection",
+    text: "Cloud & Identity Security",
     delay: 0.2,
   },
   {
     icon: <Cloud className="h-6 w-6 text-primary" />,
-    text: "Cloud Defense",
+    text: "Endpoint Threat Defense",
     delay: 0.3,
   },
   {
     icon: <Lock className="h-6 w-6 text-primary" />,
-    text: "Encryption",
+    text: "Resilient Backup Architecture",
     delay: 0.4,
   },
   {
     icon: <Network className="h-6 w-6 text-primary" />,
-    text: "Network Security",
+    text: "Executive Risk Assessments",
     delay: 0.5,
   },
   {
     icon: <Zap className="h-6 w-6 text-primary" />,
-    text: "Incident Response",
+    text: "Identity Governance",
     delay: 0.6,
   },
   {
     icon: <Eye className="h-6 w-6 text-primary" />,
-    text: "Monitoring",
+    text: "Cloud Configuration",
     delay: 0.7,
   },
   {
     icon: <Bug className="h-6 w-6 text-primary" />,
-    text: "Vulnerability Scan",
+    text: "Monitoring Visibility",
     delay: 0.8,
   },
 ];
@@ -69,21 +69,21 @@ export function Capabilities() {
     offset: ["start center", "end center"],
   });
 
-  // Header animations
-  const headerOpacity = useTransform(contentProgress, [0, 0.15], [0, 1]);
-  const headerScale = useTransform(contentProgress, [0, 0.15], [0.95, 1]);
+  // Header animations with improved bidirectional smoothness
+  const headerOpacity = useTransform(contentProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0.8]);
+  const headerScale = useTransform(contentProgress, [0, 0.15, 0.85, 1], [0.95, 1, 1, 0.98]);
 
-  // Content animations
-  const contentY = useTransform(contentProgress, [0.15, 0.4], [40, 0]);
-  const contentOpacity = useTransform(contentProgress, [0.15, 0.35], [0, 1]);
+  // Content animations with improved bidirectional smoothness
+  const contentY = useTransform(contentProgress, [0.15, 0.4, 0.8, 1], [40, 0, 0, -30]);
+  const contentOpacity = useTransform(contentProgress, [0.15, 0.35, 0.8, 1], [0, 1, 1, 0.7]);
 
   // Radar animations
   const radarScale = useTransform(contentProgress, [0.3, 0.6], [0.8, 1.1]);
   const radarOpacity = useTransform(contentProgress, [0.3, 0.5], [0, 1]);
 
-  // Orb parallax
-  const orb1Y = useTransform(sectionProgress, [0, 1], [0, -100]);
-  const orb2Y = useTransform(sectionProgress, [0, 1], [0, 100]);
+  // Orb parallax with improved smoothness
+  const orb1Y = useTransform(sectionProgress, [0, 0.5, 1], [0, -60, -120]);
+  const orb2Y = useTransform(sectionProgress, [0, 0.5, 1], [0, 60, 120]);
 
   return (
     <section
@@ -122,7 +122,7 @@ export function Capabilities() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <Zap className="h-3.5 w-3.5" aria-hidden />
-            Advanced Capabilities
+            Core Capabilities
           </motion.span>
 
           <motion.h2
@@ -132,7 +132,7 @@ export function Capabilities() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Security At Every Layer
+            Core Capabilities
           </motion.h2>
 
           <motion.div
@@ -150,7 +150,7 @@ export function Capabilities() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.3 }}
           >
-            Our multi-layered approach detects, prevents, and responds to threats in real-time across your entire infrastructure.
+            Strategic cybersecurity designed to protect infrastructure, preserve operational continuity, and reduce enterprise risk.
           </motion.p>
         </motion.div>
 
@@ -246,19 +246,19 @@ export function Capabilities() {
         >
           {[
             {
-              title: "Real-Time Detection",
+              title: "Cloud & Identity Security",
               description:
-                "AI-powered threat detection that identifies anomalies instantly across your infrastructure.",
+                "Reduce exposure across Microsoft 365 and cloud environments through identity governance and configuration hardening.",
             },
             {
-              title: "Proactive Prevention",
+              title: "Endpoint Threat Defense",
               description:
-                "Multi-layer defense strategies that stop threats before they impact your business.",
+                "Behavior-based monitoring and response to detect sophisticated threats before operational disruption.",
             },
             {
-              title: "24/7 Response",
+              title: "Executive Risk Assessments",
               description:
-                "Expert incident response team ready to contain and remediate threats around the clock.",
+                "Security evaluations translated into clear business risk insights and remediation priorities.",
             },
           ].map((item, i) => (
             <motion.div
@@ -280,6 +280,7 @@ export function Capabilities() {
             </motion.div>
           ))}
         </motion.div>
+
       </div>
     </section>
   );

@@ -128,17 +128,21 @@ export function Hero() {
 
   // Scroll-driven parallax: content drifts up and fades out
   const { scrollY } = useScroll();
-  const contentY = useTransform(scrollY, [0, 520], [0, -100]);
-  const contentOpacity = useTransform(scrollY, [0, 400], [1, 0]);
-  const scrollHintOpacity = useTransform(scrollY, [0, 140], [1, 0]);
 
-  // Additional scroll transformations for richer animations
-  const contentScale = useTransform(scrollY, [0, 400], [1, 0.92]);
-  const contentRotation = useTransform(scrollY, [0, 600], [0, -1.5]);
-  const eyebrowSlide = useTransform(scrollY, [0, 300], [0, -30]);
-  const orb1Y = useTransform(scrollY, [0, 600], [0, 200]);
-  const orb2Y = useTransform(scrollY, [0, 600], [0, -150]);
-  const orb3Y = useTransform(scrollY, [0, 600], [0, 120]);
+  // Improved bidirectional scroll animations
+  const contentY = useTransform(scrollY, [0, 400, 800], [0, -60, -120]);
+  const contentOpacity = useTransform(scrollY, [0, 300, 600], [1, 0.3, 0]);
+  const scrollHintOpacity = useTransform(scrollY, [0, 100, 200], [1, 0.5, 0]);
+
+  // Additional smooth transformations
+  const contentScale = useTransform(scrollY, [0, 300, 600], [1, 0.96, 0.92]);
+  const contentRotation = useTransform(scrollY, [0, 400, 800], [0, -1, -2]);
+  const eyebrowSlide = useTransform(scrollY, [0, 200, 400], [0, -20, -40]);
+
+  // Smoother orb movements with different speeds
+  const orb1Y = useTransform(scrollY, [0, 500, 1000], [0, 150, 300]);
+  const orb2Y = useTransform(scrollY, [0, 500, 1000], [0, -100, -200]);
+  const orb3Y = useTransform(scrollY, [0, 500, 1000], [0, 80, 160]);
 
   // ── Canvas animation ──────────────────────────────────────────────────────
 
@@ -311,7 +315,7 @@ export function Hero() {
           >
             <ShieldCheck className="h-4 w-4 text-primary" aria-hidden />
             <span className="text-xs font-semibold uppercase tracking-[0.28em] text-foreground/65">
-              Enterprise Cybersecurity &amp; GRC
+              Strategic Cybersecurity Consulting
             </span>
           </motion.div>
 
@@ -320,9 +324,9 @@ export function Hero() {
             variants={fadeUp}
             className="mb-7 text-5xl font-bold tracking-tight text-foreground md:text-7xl lg:text-[88px] leading-[0.93]"
           >
-            Your Shield Against{" "}
+            Precision Security for{" "}
             <span className="bg-gradient-to-r from-primary via-primary/75 to-accent bg-clip-text text-transparent">
-              Modern Threats
+              Decisive Organizations
             </span>
           </motion.h1>
 
@@ -331,9 +335,8 @@ export function Hero() {
             variants={fadeUp}
             className="mx-auto mb-11 max-w-2xl text-lg leading-relaxed text-foreground/58 md:text-xl"
           >
-            From cloud security architecture to SOC&nbsp;2 and ISO&nbsp;27001
-            compliance — Mometia delivers enterprise-grade protection before,
-            during, and after an incident.
+            Strategic cybersecurity designed to protect infrastructure,
+            preserve operational continuity, and reduce enterprise risk.
           </motion.p>
 
           {/* CTAs */}
@@ -342,11 +345,11 @@ export function Hero() {
             className="mb-11 flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
             <Button href="/#contact" size="lg">
-              Book Free Assessment
+              Request a Confidential Consultation
               <ArrowRight className="h-4 w-4" aria-hidden />
             </Button>
-            <Button href="/#case-studies" size="lg" variant="outline">
-              View Case Studies
+            <Button href="/#services" size="lg" variant="outline">
+              View Our Services
             </Button>
           </motion.div>
         </motion.div>

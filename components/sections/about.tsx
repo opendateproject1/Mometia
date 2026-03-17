@@ -50,44 +50,44 @@ interface StatItem {
 const SERVICES: ServiceItem[] = [
   {
     icon: <Cloud className="w-5 h-5" />,
-    title: "Cloud Security",
+    title: "Compromised credentials",
     description:
-      "Architecture and engineering for cloud-native threat prevention across AWS, Azure, and GCP environments.",
+      "Weak passwords, reused accounts, and unmonitored access create entry points for attackers.",
     side: "left",
   },
   {
     icon: <ShieldCheck className="w-5 h-5" />,
-    title: "GRC & Compliance",
+    title: "Cloud misconfigurations",
     description:
-      "Navigate SOC 2, ISO 27001, HIPAA, and NIST frameworks with confidence — we handle the complexity.",
+      "Incorrect settings in cloud platforms expose sensitive data and create unauthorized access paths.",
     side: "left",
   },
   {
     icon: <ShieldAlert className="w-5 h-5" />,
-    title: "Ransomware Defense",
+    title: "Weak monitoring visibility",
     description:
-      "Proactive protection and battle-tested response strategies that stop ransomware before it disrupts your operations.",
+      "Blind spots in security monitoring allow threats to go undetected until significant damage occurs.",
     side: "left",
   },
   {
     icon: <Search className="w-5 h-5" />,
-    title: "Security Assessments",
+    title: "Excessive permissions",
     description:
-      "In-depth audits and penetration testing that expose vulnerabilities — with clear, actionable remediation plans.",
+      "Over-privileged user accounts create unnecessary risk and expand potential attack surfaces.",
     side: "right",
   },
   {
     icon: <Zap className="w-5 h-5" />,
-    title: "Incident Response",
+    title: "Untested recovery procedures",
     description:
-      "Expert-led containment and recovery from security incidents. We're available around the clock when it matters most.",
+      "Backup and recovery plans that haven't been validated often fail when you need them most.",
     side: "right",
   },
   {
     icon: <Lock className="w-5 h-5" />,
-    title: "Zero-Trust Architecture",
+    title: "Small security gaps",
     description:
-      "Design and enforce least-privilege access across every layer of your stack — from identity to network to application.",
+      "Minor exposures that compound over time to create significant vulnerabilities in your infrastructure.",
     side: "right",
   },
 ];
@@ -192,50 +192,6 @@ function Counter({
   );
 }
 
-// ─── Service item ─────────────────────────────────────────────────────────────
-
-function ServiceCard({
-  icon,
-  title,
-  description,
-  side,
-}: ServiceItem) {
-  const variant = side === "left" ? slideLeft : slideRight;
-
-  return (
-    <motion.div
-      variants={variant}
-      className="group flex flex-col gap-3"
-      whileHover={{ y: -3, transition: { type: "spring", stiffness: 400, damping: 25 } }}
-    >
-      <div className="flex items-center gap-3">
-        <motion.div
-          className="relative flex-shrink-0 rounded-xl p-2.5 text-primary"
-          style={{ backgroundColor: "color-mix(in oklab, var(--primary) 12%, transparent)" }}
-          whileHover={{
-            rotate: [0, -8, 8, -4, 0],
-            transition: { duration: 0.45 },
-          }}
-        >
-          {icon}
-          {/* Key accent dot */}
-          <span
-            className="absolute -top-0.5 -right-0.5 h-2 w-2 rounded-full bg-primary opacity-70"
-          />
-        </motion.div>
-        <h3 className="font-semibold text-foreground text-base group-hover:text-primary transition-colors duration-200">
-          {title}
-        </h3>
-      </div>
-      <p className="text-sm leading-relaxed text-muted-foreground pl-[46px]">
-        {description}
-      </p>
-      {/* Hover CTA */}
-      
-    </motion.div>
-  );
-}
-
 // ─── Stat card ────────────────────────────────────────────────────────────────
 
 function StatCard({ icon, value, prefix, suffix, decimals, label }: StatItem) {
@@ -288,6 +244,50 @@ function StatCard({ icon, value, prefix, suffix, decimals, label }: StatItem) {
   );
 }
 
+// ─── Service item ─────────────────────────────────────────────────────────────
+
+function ServiceCard({
+  icon,
+  title,
+  description,
+  side,
+}: ServiceItem) {
+  const variant = side === "left" ? slideLeft : slideRight;
+
+  return (
+    <motion.div
+      variants={variant}
+      className="group flex flex-col gap-3"
+      whileHover={{ y: -3, transition: { type: "spring", stiffness: 400, damping: 25 } }}
+    >
+      <div className="flex items-center gap-3">
+        <motion.div
+          className="relative flex-shrink-0 rounded-xl p-2.5 text-primary"
+          style={{ backgroundColor: "color-mix(in oklab, var(--primary) 12%, transparent)" }}
+          whileHover={{
+            rotate: [0, -8, 8, -4, 0],
+            transition: { duration: 0.45 },
+          }}
+        >
+          {icon}
+          {/* Key accent dot */}
+          <span
+            className="absolute -top-0.5 -right-0.5 h-2 w-2 rounded-full bg-primary opacity-70"
+          />
+        </motion.div>
+        <h3 className="font-semibold text-foreground text-base group-hover:text-primary transition-colors duration-200">
+          {title}
+        </h3>
+      </div>
+      <p className="text-sm leading-relaxed text-muted-foreground pl-[46px]">
+        {description}
+      </p>
+      {/* Hover CTA */}
+      
+    </motion.div>
+  );
+}
+
 // ─── Main section ─────────────────────────────────────────────────────────────
 
 export function About() {
@@ -309,25 +309,25 @@ export function About() {
   const orb1Y = useTransform(sectionProgress, [0, 1], [0, -48]);
   const orb2Y = useTransform(sectionProgress, [0, 1], [0, 48]);
 
-  // Scroll-driven opacity and scale for content elements
-  const headerOpacity = useTransform(contentProgress, [0, 0.2], [0, 1]);
-  const headerScale = useTransform(contentProgress, [0, 0.2], [0.95, 1]);
+  // Scroll-driven opacity and scale for content elements with improved bidirectional smoothness
+  const headerOpacity = useTransform(contentProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0.8]);
+  const headerScale = useTransform(contentProgress, [0, 0.2, 0.8, 1], [0.95, 1, 1, 0.98]);
 
-  // Service cards scroll animations
-  const servicesY = useTransform(contentProgress, [0.1, 0.4], [40, 0]);
-  const servicesOpacity = useTransform(contentProgress, [0.1, 0.3], [0, 1]);
+  // Service cards scroll animations with improved bidirectional smoothness
+  const servicesY = useTransform(contentProgress, [0, 0.2, 0.8, 1], [60, 0, 0, -20]);
+  const servicesOpacity = useTransform(contentProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0.7]);
 
   // Stats section animations
   const statsY = useTransform(contentProgress, [0.65, 0.85], [60, 0]);
   const statsOpacity = useTransform(contentProgress, [0.65, 0.8], [0, 1]);
 
-  // Rotation animations for service cards based on scroll
-  const leftServiceRotation = useTransform(contentProgress, [0.15, 0.35], [-2, 0]);
-  const rightServiceRotation = useTransform(contentProgress, [0.15, 0.35], [2, 0]);
+  // Rotation animations for service cards with smoother bidirectional behavior
+  const leftServiceRotation = useTransform(contentProgress, [0, 0.3, 0.7, 1], [-2, 0, 0, 1]);
+  const rightServiceRotation = useTransform(contentProgress, [0, 0.3, 0.7, 1], [2, 0, 0, -1]);
 
-  // Image container animations
-  const imgScale = useTransform(contentProgress, [0.3, 0.5], [0.9, 1.05]);
-  const imgRotation = useTransform(contentProgress, [0.2, 0.5], [-1, 0]);
+  // Image container animations with enhanced bidirectional smoothness
+  const imgScale = useTransform(contentProgress, [0.3, 0.5, 1], [0.9, 1.05, 0.95]);
+  const imgRotation = useTransform(contentProgress, [0.2, 0.5, 1], [-1, 0, 1]);
 
   const leftServices = SERVICES.filter((s) => s.side === "left");
   const rightServices = SERVICES.filter((s) => s.side === "right");
@@ -388,12 +388,12 @@ export function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <KeyRound className="h-3.5 w-3.5" aria-hidden />
-            Discover Our Story
+            <ShieldAlert className="h-3.5 w-3.5" aria-hidden />
+            Modern Risk
           </motion.span>
 
           <h2 className="mb-5 text-5xl font-bold tracking-tight text-foreground md:text-6xl">
-            About Us
+            The Reality of Modern Risk
           </h2>
 
           {/* Animated underline */}
@@ -405,10 +405,11 @@ export function About() {
             transition={{ duration: 0.9, delay: 0.4, ease: EASE_EXPO }}
           />
 
-          <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Mometia is a dedicated cybersecurity and GRC consulting firm. We partner with enterprises to
-            strengthen security posture through cloud security, compliance frameworks, and proactive
-            threat defense — before, during, and after an incident.
+          <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground mb-4">
+            Cyber incidents rarely start with advanced attacks.
+          </p>
+          <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground font-semibold">
+            They begin with small gaps:
           </p>
         </motion.div>
 
@@ -480,13 +481,13 @@ export function About() {
                   transition={{ duration: 0.7, delay: 0.6 }}
                 >
                   <motion.a
-                    href="/#case-studies"
+                    href="/#capabilities"
                     className="flex items-center gap-2 rounded-full bg-background/90 px-4 py-2 text-sm font-semibold text-foreground backdrop-blur-sm"
                     whileHover={{ scale: 1.06 }}
                     whileTap={{ scale: 0.97 }}
                     transition={{ type: "spring", stiffness: 400, damping: 22 }}
                   >
-                    Case Studies <ArrowRight className="h-3.5 w-3.5" />
+                    Our Capabilities <ArrowRight className="h-3.5 w-3.5" />
                   </motion.a>
                 </motion.div>
               </motion.div>
@@ -521,6 +522,36 @@ export function About() {
             ))}
           </motion.div>
         </div>
+
+        {/* ── MOMETIA Solution Statement ── */}
+        <motion.div
+          className="mt-16 rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5 backdrop-blur-sm p-8 text-center"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.8, ease: EASE_EXPO }}
+        >
+          <motion.div
+            className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mx-auto"
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
+          >
+            <ShieldCheck className="h-8 w-8 text-primary" />
+          </motion.div>
+
+          <motion.p
+            className="text-lg leading-relaxed text-muted-foreground"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+          >
+            <span className="font-semibold text-foreground">MOMETIA IO</span> helps organizations
+            identify and resolve these exposures before they become operational disruptions.
+          </motion.p>
+        </motion.div>
 
         {/* ── Stats (replaces kpis.tsx) ── */}
         <motion.div
