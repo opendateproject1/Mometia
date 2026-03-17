@@ -2,6 +2,7 @@ import { FloatingNavbar } from "@/components/unlumen-ui/floating-navbar";
 import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
 import { Capabilities } from "@/components/sections/capabilities";
+import { Services } from "@/components/sections/services";
 import { NAV_LINKS, NAV_CTA, NavLogo } from "@/components/layout/nav-config";
 
 export default function HomePage() {
@@ -11,6 +12,7 @@ export default function HomePage() {
       <Hero />
       <About />
       <Capabilities />
+      <Services />
     </>
   );
 }
