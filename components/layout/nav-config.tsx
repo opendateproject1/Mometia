@@ -35,6 +35,7 @@ export const NAV_LINKS: NavLink[] = [
     ],
   },
   { label: "About", href: "#about" },
+  { label: "Capabilities", href: "#capabilities" },
   { label: "Case Studies", href: "#case-studies" },
   { label: "Contact", href: "#contact" },
 ];
