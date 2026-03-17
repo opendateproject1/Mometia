@@ -98,7 +98,7 @@ export default function Navbar() {
                 transition={{ type: "spring", stiffness: 400, damping: 20 }}
               >
                 <Image
-                  src="/logo.png"
+                  src="../../public/logo.png"
                   alt="Mometia Logo"
                   width={44}
                   height={44}
