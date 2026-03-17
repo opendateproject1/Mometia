@@ -132,6 +132,15 @@ export function Hero() {
   const contentOpacity = useTransform(scrollY, [0, 400], [1, 0]);
   const scrollHintOpacity = useTransform(scrollY, [0, 140], [1, 0]);
 
+  // Additional scroll transformations for richer animations
+  const contentScale = useTransform(scrollY, [0, 400], [1, 0.92]);
+  const contentRotation = useTransform(scrollY, [0, 600], [0, -1.5]);
+  const eyebrowSlide = useTransform(scrollY, [0, 300], [0, -30]);
+  const titleBlur = useTransform(scrollY, [300, 500], [0, 4]);
+  const orb1Y = useTransform(scrollY, [0, 600], [0, 200]);
+  const orb2Y = useTransform(scrollY, [0, 600], [0, -150]);
+  const orb3Y = useTransform(scrollY, [0, 600], [0, 120]);
+
   // ── Canvas animation ──────────────────────────────────────────────────────
 
   useEffect(() => {
@@ -255,9 +264,18 @@ export function Hero() {
 
       {/* Ambient glow orbs — sit on top of canvas */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <div className="absolute left-1/2 top-[-80px] h-[560px] w-[560px] -translate-x-1/2 rounded-full bg-primary/[0.06] blur-[160px]" />
-        <div className="absolute -bottom-20 right-0 h-[400px] w-[400px] rounded-full bg-secondary/[0.07] blur-[140px]" />
-        <div className="absolute left-1/4 top-1/3 h-[320px] w-[320px] rounded-full bg-accent/[0.04] blur-[130px]" />
+        <motion.div
+          className="absolute left-1/2 top-[-80px] h-[560px] w-[560px] -translate-x-1/2 rounded-full bg-primary/[0.06] blur-[160px]"
+          style={{ y: orb1Y }}
+        />
+        <motion.div
+          className="absolute -bottom-20 right-0 h-[400px] w-[400px] rounded-full bg-secondary/[0.07] blur-[140px]"
+          style={{ y: orb2Y }}
+        />
+        <motion.div
+          className="absolute left-1/4 top-1/3 h-[320px] w-[320px] rounded-full bg-accent/[0.04] blur-[130px]"
+          style={{ y: orb3Y }}
+        />
       </div>
 
       {/* Bottom fade-out into next section */}
@@ -272,7 +290,12 @@ export function Hero() {
 
       {/* ── Main content (parallax) ── */}
       <motion.div
-        style={{ y: contentY, opacity: contentOpacity }}
+        style={{
+          y: contentY,
+          opacity: contentOpacity,
+          scale: contentScale,
+          rotateZ: contentRotation,
+        }}
         className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-6 pt-32 pb-28 text-center md:px-10"
       >
         <motion.div
@@ -285,6 +308,7 @@ export function Hero() {
           <motion.div
             variants={fadeUp}
             className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-border/40 bg-background/60 px-4 py-2 backdrop-blur-sm"
+            style={{ x: eyebrowSlide }}
           >
             <ShieldCheck className="h-4 w-4 text-primary" aria-hidden />
             <span className="text-xs font-semibold uppercase tracking-[0.28em] text-foreground/65">
@@ -296,6 +320,7 @@ export function Hero() {
           <motion.h1
             variants={fadeUp}
             className="mb-7 text-5xl font-bold tracking-tight text-foreground md:text-7xl lg:text-[88px] leading-[0.93]"
+            style={{ filter: titleBlur }}
           >
             Your Shield Against{" "}
             <span className="bg-gradient-to-r from-primary via-primary/75 to-accent bg-clip-text text-transparent">
