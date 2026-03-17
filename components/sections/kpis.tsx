@@ -26,44 +26,30 @@ const KPIS: KpiItem[] = [
     value: 200,
     suffix: "+",
     decimals: 0,
-    label: "Enterprises Protected",
-    description: "Organisations that trust Mometia to secure their operations.",
-  },
-  {
-    value: 99.9,
-    suffix: "%",
-    decimals: 1,
-    label: "Threat Detection Rate",
-    description: "Verified accuracy across all monitored client environments.",
-  },
-  {
-    value: 48,
-    prefix: "<",
-    suffix: "hr",
-    decimals: 0,
-    label: "Avg Incident Response",
-    description: "From first alert to active containment and remediation.",
-  },
-  {
-    value: 50,
-    suffix: "+",
-    decimals: 0,
-    label: "Compliance Frameworks",
-    description: "SOC 2, ISO 27001, HIPAA, NIST, PCI-DSS and more.",
-  },
-  {
-    value: 7,
-    suffix: "+",
-    decimals: 0,
-    label: "Years of Experience",
-    description: "A decade of deep specialisation in enterprise security.",
+    label: "Organisations Secured",
+    description: "From Fortune 500 to fast-growing startups.",
   },
   {
     value: 100,
     suffix: "%",
     decimals: 0,
     label: "Client Retention",
-    description: "Every client we've served continues to work with us.",
+    description: "Every client we partner with stays with us.",
+  },
+  {
+    value: 48,
+    prefix: "<",
+    suffix: "hr",
+    decimals: 0,
+    label: "Incident Response Time",
+    description: "Detection to containment, guaranteed.",
+  },
+  {
+    value: 50,
+    suffix: "+",
+    decimals: 0,
+    label: "Compliance Standards",
+    description: "SOC 2, ISO 27001, HIPAA, and more.",
   },
 ];
 
@@ -192,7 +178,7 @@ function KpiCard({
 export function Kpis() {
   return (
     <section
-      className="relative w-full overflow-hidden py-28 md:py-36"
+      className="relative w-full overflow-hidden py-20 md:py-28"
       aria-label="Key metrics"
     >
       {/* Ambient glow behind the grid */}
@@ -204,7 +190,7 @@ export function Kpis() {
       <div className="relative mx-auto max-w-6xl px-6 md:px-10">
         {/* Section header */}
         <motion.div
-          className="mb-16 flex flex-col items-center text-center"
+          className="mb-12 flex flex-col items-center text-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
@@ -216,22 +202,21 @@ export function Kpis() {
             </span>
           </div>
 
-          <h2 className="mb-5 text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
+          <h2 className="mb-4 text-4xl font-bold tracking-tight text-foreground md:text-5xl">
             Results that speak{" "}
             <span className="bg-gradient-to-r from-primary via-primary/70 to-accent bg-clip-text text-transparent">
               for themselves
             </span>
           </h2>
 
-          <p className="max-w-xl text-lg text-muted-foreground leading-relaxed">
-            Seven years of focused work. Every number below is a commitment we
-            hold ourselves to, not a projection.
+          <p className="max-w-2xl text-lg text-muted-foreground leading-relaxed">
+            Trusted by hundreds of organisations worldwide. Every metric represents real impact, real partnerships, and real peace of mind.
           </p>
         </motion.div>
 
         {/* KPI grid */}
         <motion.div
-          className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
@@ -244,7 +229,7 @@ export function Kpis() {
 
         {/* Bottom divider line */}
         <motion.div
-          className="mt-20 h-px w-full bg-border/40"
+          className="mt-16 h-px w-full bg-border/40"
           initial={{ scaleX: 0, opacity: 0 }}
           whileInView={{ scaleX: 1, opacity: 1 }}
           viewport={{ once: true }}

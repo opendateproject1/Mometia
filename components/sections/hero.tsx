@@ -25,13 +25,6 @@ interface WaveConfig {
 
 // ─── Content ─────────────────────────────────────────────────────────────────
 
-const TRUST_PILLS = [
-  "SOC 2 Type II",
-  "ISO 27001",
-  "HIPAA Ready",
-  "Zero-Trust",
-] as const;
-
 // ─── Framer variants ─────────────────────────────────────────────────────────
 
 const EASE_EXPO = [0.16, 1, 0.3, 1] as const;
@@ -333,21 +326,6 @@ export function Hero() {
               View Case Studies
             </Button>
           </motion.div>
-
-          {/* Trust pills */}
-          <motion.ul
-            variants={fadeUp}
-            className="flex flex-wrap items-center justify-center gap-2.5"
-          >
-            {TRUST_PILLS.map((pill) => (
-              <li
-                key={pill}
-                className="rounded-full border border-border/35 bg-background/50 px-4 py-2 text-xs font-medium uppercase tracking-[0.18em] text-foreground/55 backdrop-blur-sm dark:border-border/50 dark:bg-background/40"
-              >
-                {pill}
-              </li>
-            ))}
-          </motion.ul>
         </motion.div>
       </motion.div>
 
