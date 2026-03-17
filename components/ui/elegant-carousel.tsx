@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence, useMotionValue, useMotionTemplate } from 'framer-motion';
+import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 interface SlideData {
@@ -62,6 +62,7 @@ export default function ElegantCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const progressMotionValue = useMotionValue(0);
+  const progressWidth = useTransform(progressMotionValue, (v) => `${v}%`);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const animationFrameRef = useRef<number | null>(null);
   const touchStartX = useRef(0);
@@ -135,7 +136,7 @@ export default function ElegantCarousel() {
 
   return (
     <div
-      className="relative w-full overflow-hidden rounded-3xl border border-border/40 bg-card/40 backdrop-blur-sm"
+      className="relative w-full overflow-hidden rounded-3xl"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={handleTouchStart}
@@ -288,7 +289,7 @@ export default function ElegantCarousel() {
                 className="h-full rounded-full bg-primary"
                 style={{
                   width: index === currentIndex
-                    ? progressMotionValue
+                    ? progressWidth
                     : index < currentIndex
                       ? '100%'
                       : '0%',

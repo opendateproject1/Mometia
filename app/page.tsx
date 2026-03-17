@@ -3,6 +3,10 @@ import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
 import { Capabilities } from "@/components/sections/capabilities";
 import { Services } from "@/components/sections/services";
+import { Commitments } from "@/components/sections/commitments";
+import { BlogSection } from "@/components/sections/blog-section";
+import { Contact } from "@/components/sections/contact";
+import { Footer } from "@/components/sections/footer";
 import { NAV_LINKS, NAV_CTA, NavLogo } from "@/components/layout/nav-config";
 
 export default function HomePage() {
@@ -13,6 +17,10 @@ export default function HomePage() {
       <About />
       <Capabilities />
       <Services />
+      <Commitments />
+      <BlogSection />
+      <Contact />
+      <Footer />
     </>
   );
 }
