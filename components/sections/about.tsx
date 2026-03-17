@@ -336,7 +336,7 @@ export function About() {
     <section
       ref={sectionRef}
       id="about"
-      className="relative w-full overflow-hidden py-28 md:py-36"
+      className="relative w-full overflow-hidden py-16 md:py-20"
       aria-label="About Mometia"
     >
       {/* ── Ambient orbs ── */}
@@ -371,7 +371,7 @@ export function About() {
 
         {/* ── Section header ── */}
         <motion.div
-          className="mb-16 flex flex-col items-center text-center"
+          className="mb-12 flex flex-col items-center text-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
@@ -524,7 +524,7 @@ export function About() {
 
         {/* ── Stats (replaces kpis.tsx) ── */}
         <motion.div
-          className="mt-24 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-40px" }}

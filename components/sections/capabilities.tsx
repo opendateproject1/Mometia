@@ -89,7 +89,7 @@ export function Capabilities() {
     <section
       ref={sectionRef}
       id="capabilities"
-      className="relative w-full overflow-hidden py-28 md:py-36"
+      className="relative w-full overflow-hidden py-16 md:py-20"
       aria-label="Security Capabilities"
     >
       {/* Ambient orbs */}
@@ -108,7 +108,7 @@ export function Capabilities() {
         {/* Header */}
         <motion.div
           ref={contentRef}
-          className="mb-20 flex flex-col items-center text-center"
+          className="mb-12 flex flex-col items-center text-center"
           style={{
             opacity: headerOpacity,
             scale: headerScale,
@@ -156,7 +156,7 @@ export function Capabilities() {
 
         {/* Radar section with capabilities */}
         <motion.div
-          className="relative flex min-h-[500px] items-center justify-center overflow-hidden"
+          className="relative flex min-h-[600px] items-center justify-center overflow-hidden"
           style={{
             opacity: contentOpacity,
             y: contentY,
@@ -174,70 +174,71 @@ export function Capabilities() {
             />
           </div>
 
-          {/* Radar in center */}
+          {/* Radar in center top */}
           <motion.div
-            className="relative z-10"
+            className="absolute top-0 z-10"
             style={{
               scale: radarScale,
               opacity: radarOpacity,
             }}
           >
-            <Radar className="h-80 w-80" />
+            <Radar className="h-64 w-64" />
           </motion.div>
 
-          {/* Capabilities positioned around radar */}
+          {/* Capabilities in semicircle (bottom half) */}
           <div className="absolute inset-0 flex items-center justify-center">
-            {/* Top row */}
+            {/* Top row - 3 items */}
             <motion.div
-              className="absolute top-0 flex items-center justify-center gap-16"
+              className="absolute top-[30%] flex w-full items-center justify-center gap-8 md:gap-16"
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <CapabilityIcon {...capabilities[0]} />
-              <CapabilityIcon {...capabilities[1]} />
-              <CapabilityIcon {...capabilities[2]} />
+              <CapabilityIcon icon={capabilities[0].icon} text={capabilities[0].text} delay={0.2} />
+              <CapabilityIcon icon={capabilities[1].icon} text={capabilities[1].text} delay={0.3} />
+              <CapabilityIcon icon={capabilities[2].icon} text={capabilities[2].text} delay={0.4} />
             </motion.div>
 
-            {/* Middle left and right */}
+            {/* Middle left - 2 items */}
             <motion.div
-              className="absolute left-0 flex items-center justify-center gap-16"
+              className="absolute left-0 top-1/2 flex flex-col items-center justify-center gap-12 -translate-y-1/2"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.35 }}
             >
-              <CapabilityIcon {...capabilities[3]} />
+              <CapabilityIcon icon={capabilities[3].icon} text={capabilities[3].text} delay={0.5} />
             </motion.div>
 
+            {/* Middle right - 1 item */}
             <motion.div
-              className="absolute right-0 flex items-center justify-center gap-16"
+              className="absolute right-0 top-1/2 flex flex-col items-center justify-center gap-12 -translate-y-1/2"
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.35 }}
             >
-              <CapabilityIcon {...capabilities[4]} />
+              <CapabilityIcon icon={capabilities[4].icon} text={capabilities[4].text} delay={0.6} />
             </motion.div>
 
-            {/* Bottom row */}
+            {/* Bottom row - 2 items */}
             <motion.div
-              className="absolute bottom-0 flex items-center justify-center gap-16"
+              className="absolute bottom-[10%] flex w-full items-center justify-center gap-8 md:gap-16"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              <CapabilityIcon {...capabilities[5]} />
-              <CapabilityIcon {...capabilities[6]} />
+              <CapabilityIcon icon={capabilities[5].icon} text={capabilities[5].text} delay={0.7} />
+              <CapabilityIcon icon={capabilities[6].icon} text={capabilities[6].text} delay={0.8} />
             </motion.div>
           </div>
         </motion.div>
 
         {/* Bottom description */}
         <motion.div
-          className="mt-24 grid gap-8 md:grid-cols-3"
+          className="mt-16 grid gap-8 md:grid-cols-3"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-100px" }}
