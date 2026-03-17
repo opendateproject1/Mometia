@@ -22,9 +22,12 @@ Cybersecurity & GRC consulting website. Next.js 15 + TypeScript + Tailwind CSS v
 ## Key Files
 - `app/globals.css` — full theme + `@import "tailwindcss"`
 - `app/layout.tsx` — Google Fonts + globals.css import + ThemeProvider wrapper
-- `app/page.tsx` — main page (uses FloatingNavbar)
+- `app/page.tsx` — main page (FloatingNavbar + Hero + Kpis)
 - `components/unlumen-ui/floating-navbar.tsx` — FloatingNavbar component (built from scratch, matches unlumen-ui API)
 - `components/ui/theme-provider.tsx` — next-themes ThemeProvider re-export
+- `components/ui/button.tsx` — motion.a / motion.button with href discrimination (LinkButtonProps | ActionButtonProps), variants: default/outline, sizes: sm/md/lg
+- `components/sections/hero.tsx` — Hero (export: `Hero`) — glowy waves canvas + Mometia copy + scroll parallax fade-out
+- `components/sections/kpis.tsx` — KPIs (export: `Kpis`) — 6 animated count-up cards, staggered whileInView entrance
 
 ## Navbar Design Patterns
 - API: `<FloatingNavbar logo={ReactNode} links={NavLink[]} cta={{ label, href }} />`

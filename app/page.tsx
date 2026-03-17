@@ -1,4 +1,6 @@
 import { FloatingNavbar } from "@/components/unlumen-ui/floating-navbar";
+import { Hero } from "@/components/sections/hero";
+import { Kpis } from "@/components/sections/kpis";
 
 const LINKS = [
   {
@@ -55,9 +57,8 @@ export default function HomePage() {
         links={LINKS}
         cta={{ label: "Book a Call", href: "/#contact" }}
       />
-
-      {/* Placeholder height so scroll behavior is testable */}
-      <main className="min-h-[300vh] pt-24" />
+      <Hero />
+      <Kpis />
     </>
   );
 }
