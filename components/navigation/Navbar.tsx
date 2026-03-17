@@ -8,7 +8,8 @@ import {
 } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 const NAV_LINKS = [
   { label: "Services", href: "/#services" },
@@ -18,6 +19,77 @@ const NAV_LINKS = [
 ];
 
 const EASE_OUT_EXPO = [0.16, 1, 0.3, 1] as const;
+
+function SunIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+    </svg>
+  );
+}
+
+function MoonIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+    </svg>
+  );
+}
+
+function ThemeToggle({ compact = false }: { compact?: boolean }) {
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  const isDark = resolvedTheme === "dark";
+  const toggle = () => setTheme(isDark ? "light" : "dark");
+
+  return (
+    <motion.button
+      onClick={toggle}
+      aria-label="Toggle theme"
+      className={[
+        "relative flex items-center justify-center rounded-full overflow-hidden",
+        "transition-colors duration-200",
+        compact
+          ? "w-12 h-12 text-foreground/60 hover:text-foreground hover:bg-muted/60"
+          : "w-9 h-9 text-muted-foreground hover:text-foreground",
+      ].join(" ")}
+      whileHover={{ scale: 1.08 }}
+      whileTap={{ scale: 0.92, rotate: 15 }}
+      transition={{ type: "spring", stiffness: 420, damping: 22 }}
+    >
+      <motion.span
+        aria-hidden
+        className="absolute inset-0 rounded-full opacity-0 hover:opacity-100"
+        style={{
+          backgroundColor:
+            "color-mix(in oklab, var(--muted) 50%, transparent)",
+        }}
+        whileHover={{ opacity: 1 }}
+        transition={{ duration: 0.2 }}
+      />
+      <AnimatePresence mode="wait" initial={false}>
+        {mounted ? (
+          <motion.span
+            key={isDark ? "moon" : "sun"}
+            className="relative"
+            initial={{ opacity: 0, rotate: -30, scale: 0.7 }}
+            animate={{ opacity: 1, rotate: 0, scale: 1 }}
+            exit={{ opacity: 0, rotate: 30, scale: 0.7 }}
+            transition={{ duration: 0.22, ease: EASE_OUT_EXPO }}
+          >
+            {isDark ? <SunIcon /> : <MoonIcon />}
+          </motion.span>
+        ) : (
+          <span className="w-4 h-4 rounded-full bg-muted animate-pulse" />
+        )}
+      </AnimatePresence>
+    </motion.button>
+  );
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -98,8 +170,8 @@ export default function Navbar() {
                 transition={{ type: "spring", stiffness: 400, damping: 20 }}
               >
                 <Image
-                  src="../../public/logo.png"
-                  alt="Mometia Logo"
+                  src="/logo.png"
+                  alt="Momentia Logo"
                   width={44}
                   height={44}
                   priority
@@ -116,7 +188,7 @@ export default function Navbar() {
                 animate={{ letterSpacing: scrolled ? "-0.04em" : "-0.02em" }}
                 transition={{ duration: 0.4 }}
               >
-                Mometia
+                Momentia
               </motion.span>
             </Link>
           </motion.div>
@@ -188,13 +260,15 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* ── Desktop CTA ── */}
           <motion.div
-            className="relative z-10 hidden md:block"
+            className="relative z-10 hidden md:flex items-center gap-3"
             initial={{ opacity: 0, x: 16 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.5, ease: EASE_OUT_EXPO }}
+            transition={{ duration: 0.6, delay: 0.45, ease: EASE_OUT_EXPO }}
           >
+            <ThemeToggle />
+
+            {/* ── Desktop CTA ── */}
             <motion.a
               href="/#contact"
               className="relative inline-flex items-center gap-2 px-5 py-2 text-sm font-semibold rounded-full overflow-hidden"
@@ -341,13 +415,26 @@ export default function Navbar() {
                 </motion.div>
               ))}
 
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 12 }}
+                transition={{
+                  delay: NAV_LINKS.length * 0.06 + 0.12,
+                  duration: 0.4,
+                  ease: EASE_OUT_EXPO,
+                }}
+              >
+                <ThemeToggle compact />
+              </motion.div>
+
               {/* CTA in mobile menu */}
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{
-                  delay: NAV_LINKS.length * 0.06 + 0.18,
+                  delay: NAV_LINKS.length * 0.06 + 0.2,
                   duration: 0.45,
                   ease: EASE_OUT_EXPO,
                 }}

@@ -79,7 +79,7 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-2.5 w-fit">
               <Image
                 src="/logo.png"
-                alt="Mometia Logo"
+                alt="Momentia Logo"
                 width={36}
                 height={36}
                 priority
@@ -87,7 +87,7 @@ export function Footer() {
                 style={{ objectFit: "contain" }}
                 className="w-9 h-9"
               />
-              <span className="text-lg font-bold text-foreground">Mometia</span>
+              <span className="text-lg font-bold text-foreground">Momentia</span>
             </Link>
             <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
               Enterprise-grade cybersecurity consulting. We help organizations
@@ -230,7 +230,7 @@ export function Footer() {
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Mometia. All rights reserved.
+            © {new Date().getFullYear()} Momentia. All rights reserved.
           </p>
           <p className="text-xs text-muted-foreground">
             Crafted with precision for security-first organizations.

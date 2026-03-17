@@ -10,7 +10,7 @@ const commitmentTestimonials = [
       handle: "@tech_director",
       avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face"
     },
-    text: "Mometia transformed our security posture from reactive to proactive. Their comprehensive approach to threat detection reduced our incident response time by 75%.",
+    text: "Momentia transformed our security posture from reactive to proactive. Their comprehensive approach to threat detection reduced our incident response time by 75%.",
     href: "https://twitter.com"
   },
   {
@@ -19,7 +19,7 @@ const commitmentTestimonials = [
       handle: "@infosec_lead",
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
     },
-    text: "The penetration testing insights were invaluable. We patched critical vulnerabilities before they could be exploited. Mometia is now integral to our security strategy.",
+    text: "The penetration testing insights were invaluable. We patched critical vulnerabilities before they could be exploited. Momentia is now integral to our security strategy.",
     href: "https://twitter.com"
   },
   {
@@ -37,7 +37,7 @@ const commitmentTestimonials = [
       handle: "@ciso",
       avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face"
     },
-    text: "Cloud security is complex, but Mometia made it straightforward. Their monitoring platform gives us visibility we never had before. Outstanding support team.",
+    text: "Cloud security is complex, but Momentia made it straightforward. Their monitoring platform gives us visibility we never had before. Outstanding support team.",
     href: "https://twitter.com"
   },
   {
@@ -55,7 +55,7 @@ const commitmentTestimonials = [
       handle: "@risk_officer",
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
     },
-    text: "Working with Mometia has elevated our entire security program. Their team is proactive, responsive, and truly invested in our success.",
+    text: "Working with Momentia has elevated our entire security program. Their team is proactive, responsive, and truly invested in our success.",
     href: "https://twitter.com"
   }
 ]
@@ -65,7 +65,7 @@ export function Commitments() {
     <section id="commitments">
       <TestimonialsSection
         title="Trusted by Leading Organizations"
-        description="See how industry leaders are securing their infrastructure with Mometia's comprehensive security solutions"
+        description="See how industry leaders are securing their infrastructure with Momentia's comprehensive security solutions"
         testimonials={commitmentTestimonials}
         variant="light"
       />

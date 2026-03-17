@@ -6,8 +6,7 @@ import { useScroll, useTransform } from 'framer-motion'
 import { LazyImage } from '@/components/ui/lazy-image'
 import { ArrowRight, ArrowLeft, BookOpen } from 'lucide-react'
 import Link from 'next/link'
-import { FloatingNavbar } from '@/components/unlumen-ui/floating-navbar'
-import { NAV_LINKS, NAV_CTA, NavLogo } from '@/components/layout/nav-config'
+import Navbar from '@/components/navigation/Navbar'
 import { blogs } from '@/lib/blog-data'
 
 const EASE_EXPO = [0.16, 1, 0.3, 1] as const
@@ -50,7 +49,7 @@ export default function BlogPage() {
 
   return (
     <>
-      <FloatingNavbar logo={NavLogo} links={NAV_LINKS} cta={NAV_CTA} />
+      <Navbar />
 
       <main className="relative min-h-screen w-full bg-background">
         {/* Hero Header */}

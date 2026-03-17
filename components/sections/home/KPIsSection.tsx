@@ -238,7 +238,7 @@ export function KPIsSection() {
             className="mx-auto mt-4 max-w-2xl text-base text-foreground/60 md:text-lg"
           >
             Our work is measured in outcomes — not deliverables. Here's what
-            clients experience when they partner with Mometia.
+            clients experience when they partner with Momentia.
           </motion.p>
         </div>
 

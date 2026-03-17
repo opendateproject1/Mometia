@@ -333,7 +333,7 @@ export function About() {
       ref={sectionRef}
       id="about"
       className="relative w-full overflow-hidden py-16 md:py-20"
-      aria-label="About Mometia"
+      aria-label="About Momentia"
     >
       {/* ── Ambient orbs ── */}
       <motion.div
@@ -460,7 +460,7 @@ export function About() {
               >
                 <img
                   src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&auto=format&fit=crop&q=80"
-                  alt="Mometia security team"
+                  alt="Momentia security team"
                   className="h-full w-full object-cover"
                   style={{ aspectRatio: "3/4" }}
                 />

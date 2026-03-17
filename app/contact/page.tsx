@@ -14,8 +14,7 @@ import {
   Lock,
 } from 'lucide-react'
 import Link from 'next/link'
-import { FloatingNavbar } from '@/components/unlumen-ui/floating-navbar'
-import { NAV_LINKS, NAV_CTA, NavLogo } from '@/components/layout/nav-config'
+import Navbar from '@/components/navigation/Navbar'
 
 const EASE_EXPO = [0.16, 1, 0.3, 1] as const
 
@@ -37,7 +36,7 @@ const trustSignals = [
 
 const faqs = [
   {
-    q: 'How quickly can Mometia start an engagement?',
+    q: 'How quickly can Momentia start an engagement?',
     a: 'Depending on scope, most engagements can be initiated within 1–2 weeks of a signed agreement.',
   },
   {
@@ -49,7 +48,7 @@ const faqs = [
     a: 'A brief overview of your infrastructure, the systems in scope, and your compliance objectives is a great starting point.',
   },
   {
-    q: 'Can Mometia assist with regulatory compliance?',
+    q: 'Can Momentia assist with regulatory compliance?',
     a: 'Absolutely. We support SOC 2, ISO 27001, HIPAA, PCI-DSS, NIST, and sector-specific frameworks.',
   },
 ]
@@ -117,7 +116,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <FloatingNavbar logo={NavLogo} links={NAV_LINKS} cta={NAV_CTA} />
+      <Navbar />
 
       <main className="relative min-h-screen w-full bg-background">
         {/* Background orbs */}
@@ -218,7 +217,7 @@ export default function ContactPage() {
               <div className="flex flex-col gap-3">
                 <h2 className="text-xl font-bold text-foreground">Contact Details</h2>
                 {[
-                  { icon: Mail, label: 'Email', value: 'hello@mometia.com', href: 'mailto:hello@mometia.com' },
+                  { icon: Mail, label: 'Email', value: 'hello@momentia.com', href: 'mailto:hello@momentia.com' },
                   { icon: Phone, label: 'Phone', value: '+1 (555) 000-0000', href: 'tel:+15550000000' },
                   { icon: MapPin, label: 'Location', value: 'New York, NY', href: '#' },
                 ].map(({ icon: Icon, label, value, href }) => (
@@ -286,7 +285,7 @@ export default function ContactPage() {
                     </motion.div>
                     <h3 className="text-2xl font-bold text-foreground">Message Sent!</h3>
                     <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-                      Thank you for contacting Mometia. A member of our security
+                      Thank you for contacting Momentia. A member of our security
                       team will be in touch within one business day.
                     </p>
                     <button

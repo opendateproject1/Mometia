@@ -9,7 +9,7 @@ import Link from 'next/link'
 const EASE_EXPO = [0.16, 1, 0.3, 1] as const
 
 const contactDetails = [
-  { icon: Mail, label: 'Email', value: 'hello@mometia.com', href: 'mailto:hello@mometia.com' },
+  { icon: Mail, label: 'Email', value: 'hello@momentia.com', href: 'mailto:hello@momentia.com' },
   { icon: Phone, label: 'Phone', value: '+1 (555) 000-0000', href: 'tel:+15550000000' },
   { icon: MapPin, label: 'Location', value: 'New York, NY', href: '#' },
 ]
@@ -301,10 +301,10 @@ export function Contact() {
                   <p className="text-center text-xs text-muted-foreground">
                     Or email us directly at{' '}
                     <a
-                      href="mailto:hello@mometia.com"
+                      href="mailto:hello@momentia.com"
                       className="text-primary hover:underline underline-offset-4"
                     >
-                      hello@mometia.com
+                      hello@momentia.com
                     </a>
                   </p>
                 </motion.form>

@@ -57,7 +57,7 @@ export const NavLogo: ReactNode = (
       className="font-sans font-bold text-[17px] tracking-tight"
       style={{ color: "var(--foreground)" }}
     >
-      Mometia
+      Momentia
     </span>
   </div>
 );
