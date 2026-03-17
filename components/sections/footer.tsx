@@ -184,7 +184,7 @@ export function Footer() {
                 { label: 'Incident Response', href: '#' },
               ].map((link) => (
                 <a
-                  key={link.href}
+                  key={link.label}
                   href={link.href}
                   className="group w-fit text-sm text-muted-foreground transition-colors duration-200 hover:text-primary"
                 >
@@ -202,7 +202,7 @@ export function Footer() {
             <div className="flex flex-col gap-2">
               {legalLinks.map((link) => (
                 <a
-                  key={link.href}
+                  key={link.label}
                   href={link.href}
                   className="group w-fit text-sm text-muted-foreground transition-colors duration-200 hover:text-primary"
                 >

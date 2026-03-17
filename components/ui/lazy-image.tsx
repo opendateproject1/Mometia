@@ -70,7 +70,7 @@ export function LazyImage({
       <motion.div
         className={cn(
           'bg-gradient-to-r from-muted via-muted/50 to-muted absolute inset-0 animate-pulse rounded-lg transition-opacity will-change-[opacity]',
-          { 'opacity-0': !isLoading },
+          !isLoading && 'opacity-0',
         )}
         initial={{ opacity: 1 }}
         animate={{ opacity: isLoading ? 1 : 0 }}
@@ -84,9 +84,7 @@ export function LazyImage({
           src={imgSrc}
           className={cn(
             'size-full rounded-lg object-cover opacity-0 transition-opacity duration-300 will-change-[opacity]',
-            {
-              'opacity-100': !isLoading,
-            },
+            !isLoading && 'opacity-100',
             className,
           )}
           onLoad={handleLoad}

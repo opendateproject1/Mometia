@@ -5,7 +5,9 @@ import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { GridPattern } from '@/components/ui/grid-pattern';
 
-interface GridCardProps extends React.ComponentProps<'div'> {
+interface GridCardProps {
+  className?: string;
+  children?: React.ReactNode;
   squares?: [x: number, y: number][];
 }
 
@@ -13,7 +15,6 @@ export function GridCard({
   className,
   children,
   squares = [[7, 1], [9, 3], [8, 5], [10, 2], [7, 4]],
-  ...props
 }: GridCardProps) {
   return (
     <motion.div
@@ -29,7 +30,6 @@ export function GridCard({
         scale: 1.01,
         transition: { type: "spring", stiffness: 400, damping: 25 }
       }}
-      {...props}
     >
       <div className="absolute inset-0">
         {/* Skewed grid pattern reveal */}

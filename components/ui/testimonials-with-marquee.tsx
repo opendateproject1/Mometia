@@ -88,7 +88,7 @@ export function TestimonialsSection({
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            ✨ Client Testimonials
+            Client Testimonials
           </motion.span>
 
           <motion.h2

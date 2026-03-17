@@ -199,11 +199,7 @@ function StatCard({ icon, value, prefix, suffix, decimals, label }: StatItem) {
     <motion.div
       variants={statCard}
       whileHover={{ y: -4, transition: { type: "spring", stiffness: 380, damping: 24 } }}
-      className="group relative flex flex-col items-center gap-2 rounded-2xl border border-border/40 bg-card/60 p-6 text-center backdrop-blur-sm"
-      style={{
-        boxShadow:
-          "0 1px 3px hsl(0 0% 0% / 0.04), 0 0 0 1px color-mix(in oklab, var(--border) 40%, transparent)",
-      }}
+      className="group relative flex flex-col items-center gap-2 p-6 text-center"
     >
       {/* Top accent */}
       <motion.div
@@ -523,37 +519,7 @@ export function About() {
           </motion.div>
         </div>
 
-        {/* ── MOMETIA Solution Statement ── */}
-        <motion.div
-          className="mt-16 rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5 backdrop-blur-sm p-8 text-center"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.8, ease: EASE_EXPO }}
-        >
-          <motion.div
-            className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mx-auto"
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
-          >
-            <ShieldCheck className="h-8 w-8 text-primary" />
-          </motion.div>
-
-          <motion.p
-            className="text-lg leading-relaxed text-muted-foreground"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-          >
-            <span className="font-semibold text-foreground">MOMETIA IO</span> helps organizations
-            identify and resolve these exposures before they become operational disruptions.
-          </motion.p>
-        </motion.div>
-
-        {/* ── Stats (replaces kpis.tsx) ── */}
+          {/* ── Stats (replaces kpis.tsx) ── */}
         <motion.div
           className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
           initial="hidden"

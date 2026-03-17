@@ -237,49 +237,7 @@ export function Capabilities() {
         </motion.div>
 
         {/* Bottom description */}
-        <motion.div
-          className="mt-16 grid gap-8 md:grid-cols-3"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          {[
-            {
-              title: "Cloud & Identity Security",
-              description:
-                "Reduce exposure across Microsoft 365 and cloud environments through identity governance and configuration hardening.",
-            },
-            {
-              title: "Endpoint Threat Defense",
-              description:
-                "Behavior-based monitoring and response to detect sophisticated threats before operational disruption.",
-            },
-            {
-              title: "Executive Risk Assessments",
-              description:
-                "Security evaluations translated into clear business risk insights and remediation priorities.",
-            },
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              className="group rounded-2xl border border-border/40 bg-card/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-primary/50 hover:bg-card/60"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
-              whileHover={{ y: -4 }}
-            >
-              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
-                <Check className="h-6 w-6 text-primary" />
-              </div>
-              <h3 className="mb-2 font-semibold text-foreground group-hover:text-primary transition-colors">
-                {item.title}
-              </h3>
-              <p className="text-sm text-muted-foreground">{item.description}</p>
-            </motion.div>
-          ))}
-        </motion.div>
+        
 
       </div>
     </section>

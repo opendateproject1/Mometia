@@ -136,45 +136,7 @@ export function Services() {
             scale: mainHeaderScale,
           }}
         >
-          <motion.span
-            className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.28em] text-primary"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            <Shield className="h-3.5 w-3.5" aria-hidden />
-            Our Services
-          </motion.span>
 
-          <motion.h2
-            className="mb-5 text-5xl font-bold tracking-tight text-foreground md:text-6xl"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            End-to-End Cyber Protection
-          </motion.h2>
-
-          <motion.div
-            className="mb-7 h-[3px] rounded-full bg-primary"
-            initial={{ width: 0 }}
-            whileInView={{ width: 80 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.9, delay: 0.4, ease: EASE_EXPO }}
-          />
-
-          <motion.p
-            className="max-w-2xl text-lg leading-relaxed text-muted-foreground"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-          >
-            From cloud security to compliance and threat defense, we deliver
-            comprehensive protection tailored to your organization's unique risk profile.
-          </motion.p>
         </motion.div>
 
         {/* Services Grid Section */}
@@ -328,16 +290,6 @@ export function Services() {
             transition={{ duration: 0.9, delay: 0.4, ease: EASE_EXPO }}
           />
 
-          <motion.p
-            className="max-w-2xl text-lg leading-relaxed text-muted-foreground"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-          >
-            Instead of explaining services, we show outcomes. We help organizations understand cybersecurity exposure,
-            strengthen identity governance, reduce cloud risk, improve monitoring, prepare for ransomware, and align with compliance frameworks.
-          </motion.p>
         </motion.div>
 
         {/* Carousel */}

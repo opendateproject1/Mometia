@@ -10,6 +10,7 @@ import { ArrowRight, ChevronDown, ShieldCheck } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 import { Button } from "@/components/ui/button";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -342,15 +343,12 @@ export function Hero() {
           {/* CTAs */}
           <motion.div
             variants={fadeUp}
-            className="mb-11 flex flex-col items-center justify-center gap-4 sm:flex-row"
+            className="mb-11 flex flex-col items-center justify-center sm:flex-row"
           >
-            <Button href="/#contact" size="lg">
-              Request a Confidential Consultation
-              <ArrowRight className="h-4 w-4" aria-hidden />
-            </Button>
-            <Button href="/#services" size="lg" variant="outline">
-              View Our Services
-            </Button>
+            <InteractiveHoverButton
+              href="/#contact"
+              text="Request a Consultation"
+            />
           </motion.div>
         </motion.div>
       </motion.div>
