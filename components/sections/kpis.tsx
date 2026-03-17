@@ -68,8 +68,9 @@ const sectionTitle: Variants = {
 };
 
 const gridContainer: Variants = {
-  hidden: {},
+  hidden: { opacity: 0 },
   visible: {
+    opacity: 1,
     transition: { staggerChildren: 0.09, delayChildren: 0.15 },
   },
 };
@@ -133,6 +134,7 @@ function KpiCard({
 }: KpiItem) {
   return (
     <motion.div
+      initial="hidden"
       variants={cardVariant}
       whileHover={{ y: -4, transition: { type: "spring", stiffness: 380, damping: 24 } }}
       className="group relative flex flex-col gap-3 rounded-2xl border border-border/40 bg-card/60 p-7 backdrop-blur-sm dark:border-border/30 dark:bg-card/40"
@@ -216,8 +218,8 @@ export function Kpis() {
 
         {/* KPI grid */}
         <motion.div
-          className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
           initial="hidden"
+          className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
           variants={gridContainer}
