@@ -136,7 +136,6 @@ export function Hero() {
   const contentScale = useTransform(scrollY, [0, 400], [1, 0.92]);
   const contentRotation = useTransform(scrollY, [0, 600], [0, -1.5]);
   const eyebrowSlide = useTransform(scrollY, [0, 300], [0, -30]);
-  const titleBlur = useTransform(scrollY, [300, 500], [0, 4]);
   const orb1Y = useTransform(scrollY, [0, 600], [0, 200]);
   const orb2Y = useTransform(scrollY, [0, 600], [0, -150]);
   const orb3Y = useTransform(scrollY, [0, 600], [0, 120]);
@@ -320,7 +319,6 @@ export function Hero() {
           <motion.h1
             variants={fadeUp}
             className="mb-7 text-5xl font-bold tracking-tight text-foreground md:text-7xl lg:text-[88px] leading-[0.93]"
-            style={{ filter: titleBlur }}
           >
             Your Shield Against{" "}
             <span className="bg-gradient-to-r from-primary via-primary/75 to-accent bg-clip-text text-transparent">
