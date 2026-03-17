@@ -156,7 +156,7 @@ export function Capabilities() {
 
         {/* Radar section with capabilities */}
         <motion.div
-          className="relative flex min-h-[600px] items-center justify-center overflow-hidden"
+          className="relative flex min-h-[700px] items-center justify-center overflow-hidden"
           style={{
             opacity: contentOpacity,
             y: contentY,
@@ -174,22 +174,22 @@ export function Capabilities() {
             />
           </div>
 
-          {/* Radar in center bottom */}
+          {/* Radar in center */}
           <motion.div
-            className="absolute bottom-0 z-10"
+            className="absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2"
             style={{
               scale: radarScale,
               opacity: radarOpacity,
             }}
           >
-            <Radar className="h-64 w-64" />
+            <Radar className="h-96 w-96" />
           </motion.div>
 
           {/* Capabilities in semicircle (top half) */}
           <div className="absolute inset-0 flex items-center justify-center">
             {/* Top row - 2 items */}
             <motion.div
-              className="absolute top-[10%] flex w-full items-center justify-center gap-8 md:gap-16"
+              className="absolute top-[5%] flex w-full items-center justify-center gap-20 md:gap-32"
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -201,7 +201,7 @@ export function Capabilities() {
 
             {/* Middle left - 1 item */}
             <motion.div
-              className="absolute left-0 top-1/2 flex flex-col items-center justify-center gap-12 -translate-y-1/2"
+              className="absolute left-[5%] top-1/2 flex flex-col items-center justify-center gap-12 -translate-y-1/2"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -212,7 +212,7 @@ export function Capabilities() {
 
             {/* Middle right - 1 item */}
             <motion.div
-              className="absolute right-0 top-1/2 flex flex-col items-center justify-center gap-12 -translate-y-1/2"
+              className="absolute right-[5%] top-1/2 flex flex-col items-center justify-center gap-12 -translate-y-1/2"
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -223,7 +223,7 @@ export function Capabilities() {
 
             {/* Bottom row - 3 items */}
             <motion.div
-              className="absolute bottom-[10%] flex w-full items-center justify-center gap-8 md:gap-16"
+              className="absolute bottom-[5%] flex w-full items-center justify-center gap-16 md:gap-20"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
