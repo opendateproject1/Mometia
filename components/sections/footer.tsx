@@ -3,8 +3,9 @@
 import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useScroll, useTransform } from 'framer-motion'
-import { Mail, ArrowRight, Linkedin, Twitter, Github, Shield } from 'lucide-react'
+import { Mail, ArrowRight, Linkedin, Twitter, Github } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const EASE_EXPO = [0.16, 1, 0.3, 1] as const
 
@@ -75,10 +76,17 @@ export function Footer() {
         >
           {/* Branding */}
           <motion.div className="flex flex-col gap-4" variants={itemVariants}>
-            <Link href="/" className="flex items-center gap-2 w-fit">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/20 ring-1 ring-primary/40">
-                <Shield className="h-5 w-5 text-primary" />
-              </div>
+            <Link href="/" className="flex items-center gap-2.5 w-fit">
+              <Image
+                src="/logo.png"
+                alt="Mometia Logo"
+                width={36}
+                height={36}
+                priority
+                quality={100}
+                style={{ objectFit: "contain" }}
+                className="w-9 h-9"
+              />
               <span className="text-lg font-bold text-foreground">Mometia</span>
             </Link>
             <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">

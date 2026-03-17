@@ -26,6 +26,9 @@ export const metadata: Metadata = {
   title: "Mometia — Cybersecurity & GRC Consulting",
   description:
     "Enterprise-grade cybersecurity consulting. We help organizations manage risk, achieve compliance, and defend against modern threats.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

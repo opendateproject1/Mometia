@@ -134,7 +134,7 @@ export function Contact() {
                 <motion.a
                   key={label}
                   href={href}
-                  className="group flex items-start gap-4 rounded-xl border border-border/40 bg-card/30 p-4 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:bg-card/60 hover:shadow-md hover:shadow-primary/[0.06]"
+                  className="group flex items-start gap-4 p-4 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:bg-card/60 hover:shadow-md hover:shadow-primary/[0.06]"
                   whileHover={{ x: 4 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                 >
@@ -157,7 +157,6 @@ export function Contact() {
             <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
 
             {/* Trust statement */}
-            <div className="rounded-xl border border-border/40 bg-gradient-to-br from-primary/5 to-accent/5 p-5 backdrop-blur-sm">
               <p className="text-sm leading-relaxed text-muted-foreground">
                 <span className="font-semibold text-foreground">
                   Enterprise-grade confidentiality.
@@ -165,17 +164,13 @@ export function Contact() {
                 All communications are protected. We treat every inquiry with
                 strict professional discretion.
               </p>
-            </div>
           </motion.div>
 
           {/* Right — form */}
           <motion.div
-            className="relative rounded-2xl border border-border/50 bg-card/40 p-7 backdrop-blur-sm md:p-9"
+            className="relative p-7 backdrop-blur-sm md:p-9"
             style={{ y: rightY, opacity: rightOpacity }}
           >
-            {/* Subtle card glow */}
-            <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/[0.03] via-transparent to-accent/[0.03]" />
-
             <AnimatePresence mode="wait">
               {submitted ? (
                 <motion.div

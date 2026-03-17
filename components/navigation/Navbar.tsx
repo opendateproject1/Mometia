@@ -7,6 +7,7 @@ import {
   useScroll,
 } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 const NAV_LINKS = [
@@ -89,31 +90,23 @@ export default function Navbar() {
             transition={{ duration: 0.6, delay: 0.25, ease: EASE_OUT_EXPO }}
             className="relative z-10 flex-shrink-0"
           >
-            <Link href="/" className="group flex items-center gap-2.5">
+            <Link href="/" className="group flex items-center gap-3">
               {/* Animated logo mark */}
               <motion.div
-                className="relative w-8 h-8 rounded-xl flex items-center justify-center overflow-hidden"
-                whileHover={{ scale: 1.1, rotate: -6 }}
-                transition={{ type: "spring", stiffness: 500, damping: 20 }}
-                style={{ backgroundColor: "var(--primary)" }}
+                className="relative flex items-center justify-center flex-shrink-0"
+                whileHover={{ scale: 1.08 }}
+                transition={{ type: "spring", stiffness: 400, damping: 20 }}
               >
-                {/* Shimmer on hover */}
-                <motion.span
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "linear-gradient(120deg, transparent 20%, rgba(255,255,255,0.35) 50%, transparent 80%)",
-                    translateX: "-100%",
-                  }}
-                  whileHover={{ translateX: "100%" }}
-                  transition={{ duration: 0.55, ease: "easeInOut" }}
+                <Image
+                  src="/logo.png"
+                  alt="Mometia Logo"
+                  width={44}
+                  height={44}
+                  priority
+                  quality={100}
+                  className="w-11 h-11"
+                  style={{ objectFit: "contain" }}
                 />
-                <span
-                  className="relative font-mono font-bold text-sm"
-                  style={{ color: "var(--primary-foreground)" }}
-                >
-                  M
-                </span>
               </motion.div>
 
               {/* Wordmark */}
